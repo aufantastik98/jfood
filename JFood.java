@@ -7,7 +7,18 @@
  */
 public class JFood
 {
-    // instance variables - replace the example below with your own
-    public static void main(String[] args){}
+    public class Food {
+    int x=5;
+    public class Customer {
+        
+    }
     
+    public class Invoice {
+        
+    }
+    
+    public void main(String[] args) {
+    Food food = new Food();
+    }
+}
 }
