@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Invoice
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Invoice\ here.\r\n\r\n\ @author\ Aufa\ Dhiya\ Aydan\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Invoice\ here.\r\n\r\n\ @author\ Aufa\ Dhiya\ Aydan\r\n\ @version\ 28\ February\ 2020\r\n
 comment1.params=id\ idFood\ totalPrice\ date\ customer
 comment1.target=Invoice(int,\ int,\ int,\ java.lang.String,\ Customer)
+comment1.text=\ \r\nconstructor\ ini\ digunakan\ untuk\ inputan\ id,\ idFood,\ totalPrice,\ date,\ dan\ customer\ dari\ invoice\ dimana\ nilai\ ini\ tidak\ dapat\ dikembalikan\r\n@param\ id\ merupakan\ variabel\ id\ dari\ invoice\ yang\ bertype\ int\r\n@param\ idFood\ merupakan\ variabel\ idFood\ dari\ invoice\ yang\ bertype\ int\r\n@param\ totalPrice\ merupakan\ totalPrice\ dari\ invoice\ yang\ bertype\ int\r\n@param\ date\ merupakan\ date\ dari\ invoice\ yang\ bertype\ string\r\n@param\ cutomer\ merupakan\ customer\ dari\ invoice\ yang\ class\ tersebut\ merujuk\ pada\ class\ tersebut\r\n
 comment10.params=totalPrice
 comment10.target=void\ setTotalPrice(int)
 comment11.params=customer

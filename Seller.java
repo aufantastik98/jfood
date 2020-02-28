@@ -1,4 +1,20 @@
-
+/**
+ * Write a description of class DatabaseFood here.
+ *
+ * @author Aufa Dhiya Aydan
+ * @version 28 February 2020
+ *//**
+ * Write a description of class DatabaseFood here.
+ *
+ * @author Aufa Dhiya Aydan
+ * @version 28 February 2020
+/**
+ * Write a description of class DatabaseFood here.
+ *
+ * @author Aufa Dhiya Aydan
+ * @version 28 February 2020
+ */
+// Ini merupakan class buat seller 
 public class Seller
 {
     // instance variables - replace the example below with your own
@@ -6,6 +22,14 @@ public class Seller
     private String name, email, phoneNumber;
     private Location location;
     
+    /** 
+     *constructor ini digunakan untuk inputan id, name, email, dan password dari customer dimana nilai ini tidak dapat dikembalikan
+     *@param id merupakan variabel id dari Seller yang bertype int
+     *@param name merupakan variabel nama dari Seller yang bertype string
+     *@param email merupakan email dari Seller yang bertype string
+     *@param phoneNumber merupakan phoneNumber dari Seller yang bertype string
+     *@param location merupakan tanggal masuk Seller yang variablenya merujuk pada classnya
+     */
     public Seller (int id, String name, String email, String phoneNumber, Location location)
     {
      this.id=id;
@@ -17,26 +41,46 @@ public class Seller
     
     public int getId ()
     { 
+        /* @return id, fungsi ini merupakan fungsi mengembalikan variable id
+         * *
+         * *
+         */
         return (id);
     }
     
     public String getName ()
     {
+        /* @return name, fungsi ini merupakan fungsi mengembalikan variable name
+         * *
+         * *
+         */
         return (name);
     }
     
     public String getEmail ()
     {
+        /* @return email, fungsi ini merupakan fungsi mengembalikan variable email
+         * *
+         * *
+         */
         return (email);
     }
     
     public String getPhoneNumber ()
     {
+        /* @return phoneNumber, fungsi ini merupakan fungsi mengembalikan variable phoneNumber
+         * *
+         * *
+         */
         return (phoneNumber);
     }
     
     public Location location ()
     {
+        /* @return location, fungsi ini merupakan fungsi mengembalikan variable location
+         * *
+         * *
+         */
         return (location);
     }
     

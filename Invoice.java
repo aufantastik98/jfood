@@ -3,8 +3,10 @@
  * Write a description of class Invoice here.
  *
  * @author Aufa Dhiya Aydan
- * @version (a version number or a date)
+ * @version 28 February 2020
  */
+
+// Ini merupakan class buat invoice
 public class Invoice
 {
     // instance variables - replace the example below with your own
@@ -12,6 +14,14 @@ public class Invoice
     private String date;
     private Customer customer;
     
+    /** 
+     *constructor ini digunakan untuk inputan id, idFood, totalPrice, date, dan customer dari invoice dimana nilai ini tidak dapat dikembalikan
+     *@param id merupakan variabel id dari invoice yang bertype int
+     *@param idFood merupakan variabel idFood dari invoice yang bertype int
+     *@param totalPrice merupakan totalPrice dari invoice yang bertype int
+     *@param date merupakan date dari invoice yang bertype string
+     *@param cutomer merupakan customer dari invoice yang class tersebut merujuk pada class tersebut
+     */
     public Invoice (int id, int idFood, int totalPrice, String date, Customer customer) 
     {
         this.id=id;
@@ -22,27 +32,47 @@ public class Invoice
     }
     
     public int getId ()
-    {
+    { 
+        /* @return id, fungsi ini merupakan fungsi mengembalikan variable id
+         * *
+         * *
+         */
         return (id);
     }
     
     public int getIdFood ()
     {
+        /* @return idFood, fungsi ini merupakan fungsi mengembalikan variable idFood
+         * *
+         * *
+         */
         return (idFood);
     }
     
     public String getDate ()
     {
+        /* @return date, fungsi ini merupakan fungsi mengembalikan variable date
+         * *
+         * *
+         */
         return (date);
     }
     
     public int getTotalPrice ()
     {
+        /* @return totalPrice, fungsi ini merupakan fungsi mengembalikan variable totalPrice
+         * *
+         * *
+         */
         return (totalPrice);
     }
     
     public Customer getCustomer()
     {
+        /* @return customer, fungsi ini merupakan fungsi mengembalikan variable customer
+         * *
+         * *
+         */
         return (customer);
     }
     

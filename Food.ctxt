@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Food
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Food\ here.\r\n\r\n\ @author\ Aufa\ Dhiya\ Aydan\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Food\ here.\r\n\r\n\ @author\ Aufa\ Dhiya\ Aydan\r\n\ @version\ 28\ February\ 2020\r\n
 comment1.params=id\ price\ name\ category\ seller
 comment1.target=Food(int,\ int,\ java.lang.String,\ java.lang.String,\ Seller)
+comment1.text=\ \r\nconstructor\ ini\ digunakan\ untuk\ inputan\ id,\ price,\ category,\ dan\ seller\ dari\ food\ dimana\ nilai\ ini\ tidak\ dapat\ dikembalikan\r\n@param\ id\ merupakan\ variabel\ id\ dari\ foodnya\ yang\ bertype\ int\r\n@param\ name\ merupakan\ variabel\ nama\ dari\ food\ yang\ bertype\ string\r\n@param\ price\ merupakan\ price\ dari\ food\ yang\ bertype\ string\r\n@param\ category\ merupakan\ category\ dari\ food\ yang\ bertype\ string\r\n@param\ seller\ merupakan\ seller\ food\ yang\ merupakan\ class\ yang\ memanggil\ seller\r\n
 comment10.params=price
 comment10.target=void\ setPrice(int)
 comment11.params=category

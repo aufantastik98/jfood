@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Customer
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Customer\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Customer\ here.\r\n\r\n\ @author\ Aufa\ Dhiya\ Aydan\r\n\ @version\ 28\ February\ 2020\r\n
 comment1.params=id\ name\ email\ password\ joinDate
 comment1.target=Customer(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\ \r\nconstructor\ ini\ digunakan\ untuk\ inputan\ id,\ name,\ email,\ dan\ password\ dari\ customer\ dimana\ nilai\ ini\ tidak\ dapat\ dikembalikan\r\n@param\ id\ merupakan\ variabel\ id\ dari\ customernya\ yang\ bertype\ int\r\n@param\ name\ merupakan\ variabel\ nama\ dari\ customer\ yang\ bertype\ string\r\n@param\ email\ merupakan\ email\ dari\ customer\ yang\ bertype\ string\r\n@param\ password\ merupakan\ password\ dari\ customer\ yang\ bertype\ string\r\n@param\ joinDate\ merupakan\ tanggal\ masuk\ customer\ yang\ bertype\ string\r\n
 comment10.params=password
 comment10.target=void\ setPassword(java.lang.String)
 comment11.params=joinDate
