@@ -20,6 +20,7 @@ public class Seller
     // instance variables - replace the example below with your own
     private int id;
     private String name, email, phoneNumber;
+    
     private Location location;
     
     /** 

@@ -10,7 +10,7 @@ public class DatabaseFood
 {
     // instance variables - replace the example below with your own
     private String[] listFood;
-
+      
    /** 
      *constructor ini digunakan untuk inputan listFood dari DatabaseFood dimana nilai ini tidak dapat dikembalikan
      *@param listFood merupakan variabel listFood dari DatabaseFood yang bertype String
@@ -18,6 +18,8 @@ public class DatabaseFood
     public DatabaseFood()
     {
     }
+    
+    
 
    
     public boolean addFood (Food food)
