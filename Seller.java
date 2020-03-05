@@ -76,13 +76,13 @@ public class Seller
         return (phoneNumber);
     }
     
-    public Location location ()
+    public Location getLocation ()
     {
         /* @return location, fungsi ini merupakan fungsi mengembalikan variable location
          * *
          * *
          */
-        return (location);
+        return location;
     }
     
     public void setId (int id)

@@ -11,8 +11,9 @@ public class Food
 {
     // instance variables - replace the example below with your own
     private int id, price;
-    private String name, category;
+    private String name;
     private Seller seller;
+    private FoodCategory category;
     
      /** 
      *constructor ini digunakan untuk inputan id, price, category, dan seller dari food dimana nilai ini tidak dapat dikembalikan
@@ -23,7 +24,7 @@ public class Food
      *@param seller merupakan seller food yang merupakan class yang memanggil seller
      */
     
-    public Food (int id, int price, String name, String category, Seller seller)
+    public Food (int id, int price, String name, FoodCategory category, Seller seller)
     {
         this.id=id;
         this.price=price;
@@ -68,7 +69,7 @@ public class Food
         return (price);
     }
     
-    public String getCategory ()
+    public FoodCategory getCategory ()
     {
         /* @return category, fungsi ini merupakan fungsi mengembalikan variable category
          * *
@@ -97,13 +98,18 @@ public class Food
         this.price=price;
     }
     
-    public void setCategory (String category)
+    public void setCategory (FoodCategory category)
     {
         this.category=category;
     }
     
     public void printData ()
     {
-        System.out.println(name);
+        System.out.println("======Food=====");
+        System.out.println("ID:" +id);
+        System.out.println("Name:" + getSeller().getName());
+        System.out.println("City:" + getSeller().getLocation().getCity());
+        System.out.println("Price:" + price);
+        System.out.println("Category:" + category);
     }
     }

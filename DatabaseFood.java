@@ -9,20 +9,14 @@
 public class DatabaseFood
 {
     // instance variables - replace the example below with your own
-    private String[] listFood;
+    private static String[] listFood;
       
    /** 
      *constructor ini digunakan untuk inputan listFood dari DatabaseFood dimana nilai ini tidak dapat dikembalikan
      *@param listFood merupakan variabel listFood dari DatabaseFood yang bertype String
-     */
-    public DatabaseFood()
-    {
-    }
-    
-    
-
+     */ 
    
-    public boolean addFood (Food food)
+    public static boolean addFood (Food food)
     {
      /* @return true, ini merupakan aksesor yang digunakan untuk methode exit
          * *
@@ -31,7 +25,7 @@ public class DatabaseFood
        return true; 
     }
     
-    public boolean removeFood (Food food)
+    public static boolean removeFood (Food food)
     {
         /* @return true, ini merupakan aksesor yang digunakan untuk methode exit
          * *
@@ -40,7 +34,12 @@ public class DatabaseFood
         return true;
     }
     
-    public String[] getlistFood ()
+    public static Food getFood ()
+    {
+        return null;
+    }
+    
+    public static String[] getlistFood ()
     {
         /* @return listFood, ini merupakan fungsi mengembalikan variable listFood
          * *
