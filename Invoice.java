@@ -13,6 +13,8 @@ public class Invoice
     private int id, idFood, totalPrice;
     private String date;
     private Customer customer;
+    private PaymentType paymentType;
+    private InvoiceStatus status;
     
     /** 
      *constructor ini digunakan untuk inputan id, idFood, totalPrice, date, dan customer dari invoice dimana nilai ini tidak dapat dikembalikan
@@ -22,13 +24,14 @@ public class Invoice
      *@param date merupakan date dari invoice yang bertype string
      *@param cutomer merupakan customer dari invoice yang class tersebut merujuk pada class tersebut
      */
-    public Invoice (int id, int idFood, int totalPrice, String date, Customer customer) 
+    public Invoice (int id, int idFood, String date, Customer customer,int totalPrice, InvoiceStatus status) 
     {
         this.id=id;
         this.idFood=idFood;
         this.totalPrice=totalPrice;
         this.date=date;
         this.customer=customer;
+        this.status=status;
     }
     
     public int getId ()
@@ -76,6 +79,16 @@ public class Invoice
         return (customer);
     }
     
+    public PaymentType getPaymentType()
+    {
+        return paymentType;
+    }
+    
+    public InvoiceStatus getInvoiceStatus()
+    {
+        return null;
+    }
+    
     public void setId (int id)
     { 
         this.id=id;
@@ -101,10 +114,26 @@ public class Invoice
         this.customer=customer;
     }
     
+    public void setPaymentType (PaymentType paymentType)
+    {
+        this.paymentType=paymentType;
+    }
+    
+    public void setInvoiceStatus (InvoiceStatus status)
+    {
+        this.status=status;
+    }
+    
     public void printData()
     {
-        System.out.println(totalPrice);
-    }
+       System.out.println("======INVOICE=====");
+        System.out.println("ID:" +id);
+        System.out.println("FOOD ID:" +idFood);
+        System.out.println("Date:" +date);
+        System.out.println("Customer:" +customer.getName());
+        System.out.println("Total Price:" +totalPrice);
+        System.out.println("Status:" +status);
+           }
         
         
         
