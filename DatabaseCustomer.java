@@ -18,28 +18,19 @@ public class DatabaseCustomer
 
    public boolean addCustomer (Customer customer)
     {
-     /* @return true, ini merupakan aksesor yang digunakan untuk methode exit
-         * *
-         * *
-         */   
+      
        return true; 
     }
     
     public boolean removeCustomer (Customer customer)
     {
-        /* @return true, ini merupakan aksesor yang digunakan untuk methode exit
-         * *
-         * *
-         */
+        
         return true;
     }
     
     public Customer getCustomer (int id)
     {
-        /* @return listFood, ini merupakan fungsi mengembalikan variable listFood
-         * *
-         * *
-         */
+        
         return (null);
     }
     
@@ -47,10 +38,7 @@ public class DatabaseCustomer
     
     public String[] getlistCustomer ()
     {
-        /* @return listFood, ini merupakan fungsi mengembalikan variable listFood
-         * *
-         * *
-         */
+        
         return listCustomer;
     }
   

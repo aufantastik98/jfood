@@ -10,11 +10,14 @@
 public class Invoice
 {
     // instance variables - replace the example below with your own
-    private int id, idFood, totalPrice;
+    private int id;
+    protected int totalPrice;
+    private Food food;
     private String date;
     private Customer customer;
+    private InvoiceStatus invoiceStatus;
     private PaymentType paymentType;
-    private InvoiceStatus status;
+    
     
     /** 
      *constructor ini digunakan untuk inputan id, idFood, totalPrice, date, dan customer dari invoice dimana nilai ini tidak dapat dikembalikan
@@ -24,14 +27,13 @@ public class Invoice
      *@param date merupakan date dari invoice yang bertype string
      *@param cutomer merupakan customer dari invoice yang class tersebut merujuk pada class tersebut
      */
-    public Invoice (int id, int idFood, String date, Customer customer,int totalPrice, InvoiceStatus status) 
+    public Invoice (int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus) 
     {
         this.id=id;
-        this.idFood=idFood;
-        this.totalPrice=totalPrice;
+        this.food=food;
         this.date=date;
         this.customer=customer;
-        this.status=status;
+        this.invoiceStatus=invoiceStatus;
     }
     
     public int getId ()
@@ -43,13 +45,9 @@ public class Invoice
         return (id);
     }
     
-    public int getIdFood ()
+    public Food getFood ()
     {
-        /* @return idFood, fungsi ini merupakan fungsi mengembalikan variable idFood
-         * *
-         * *
-         */
-        return (idFood);
+        return (food);
     }
     
     public String getDate ()
@@ -94,9 +92,9 @@ public class Invoice
         this.id=id;
     }
     
-    public void setIdFood (int idFood)
+    public void setFood (Food food)
     {
-        this.idFood=idFood;
+        this.food=food;
     }
     
     public void setdate (String date)
@@ -114,30 +112,13 @@ public class Invoice
         this.customer=customer;
     }
     
-    public void setPaymentType (PaymentType paymentType)
+    public void setInvoiceStatus (InvoiceStatus invoiceStatus)
     {
-        this.paymentType=paymentType;
-    }
-    
-    public void setInvoiceStatus (InvoiceStatus status)
-    {
-        this.status=status;
+        this.invoiceStatus=invoiceStatus;
     }
     
     public void printData()
     {
-       System.out.println("======INVOICE=====");
-        System.out.println("ID:" +id);
-        System.out.println("FOOD ID:" +idFood);
-        System.out.println("Date:" +date);
-        System.out.println("Customer:" +customer.getName());
-        System.out.println("Total Price:" +totalPrice);
-        System.out.println("Status:" +status);
            }
-        
-        
-        
-    
-    
-
+     
 }
