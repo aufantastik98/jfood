@@ -12,10 +12,11 @@ public class JFood
    
     Food food = new Food(12345, 19000, "Apel", FoodCategory.COFFEE, seller1);
      
-    Invoice invoice = new Invoice(1, food.getID(), "23 Desember 2010", customer, food.getPrice() , InvoiceStatus.ONGOING);  
-    
-    invoice.printData();
-     
+    CashInvoice cashinvoice = new CashInvoice (4, food, "3/3/202", customer, InvoiceStatus.FINISHED ); 
+    CashInvoice cashinvoice1 = new CashInvoice (5, food, "3/3/202", customer, InvoiceStatus.FINISHED, 10); 
+          
+    cashinvoice.printData();
+    cashinvoice1.printData(); 
     
 }
       
