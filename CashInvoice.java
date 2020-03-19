@@ -47,15 +47,29 @@ public class CashInvoice extends Invoice
     
     public void printData()
     {
-        System.out.println("===========Invoice==========");
-        System.out.println("ID = "+getId());
-        System.out.println("Food = "+getFood().getName());
-        System.out.println("Date = "+getDate());
-        System.out.println("Customer = "+getCustomer().getName());
-        System.out.println("Delivery Fee = "+getDeliveryFee());
-        System.out.println("Total Price = "+super.totalPrice);
-        System.out.println("Status ="+getInvoiceStatus());
-        System.out.println("Payment = "+PAYMENT_TYPE);
+       System.out.println("=========INVOICE==========="); 
+       System.out.println("ID:" + getId());
+       System.out.println("Food:" + getFood().getName());
+       System.out.println("Date:" + getDate());
+       System.out.println("Customer:" + getCustomer().getName());
+       if(deliveryFee== 0){
+        }else { System.out.println("Delivery Fee : " + deliveryFee);}
+       System.out.println("Total Price:" + totalPrice);
+       System.out.println("Status:" + getInvoiceStatus());
+       System.out.println("Payment Type:" + PAYMENT_TYPE);
+    }
+    public void printData1()
+    {
+       System.out.println("=========INVOICE==========="); 
+       System.out.println("ID:" + getId());
+       System.out.println("Food:" + getFood().getName());
+       System.out.println("Date:" + getDate());
+       System.out.println("Customer:" + getCustomer().getName());
+       if(deliveryFee== 0){
+        }else { System.out.println("Delivery Fee : " + deliveryFee);}
+       System.out.println("Total Price:" + totalPrice);
+       System.out.println("Status:" + getInvoiceStatus());
+       System.out.println("Payment Type:" + PAYMENT_TYPE);
     }
 }
 

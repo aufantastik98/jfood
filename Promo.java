@@ -77,7 +77,15 @@ public class Promo
         this.active=active;
     }
     
-    public void printData()
+    public String toString ()
     {
+        return
+        "===Seller==="+"\n"+
+        "Id :"+id+"\n"+
+        "Code :"+code+"\n"+
+        "Discount :"+discount+"\n"+
+        "MinPrice :"+ minPrice+"\n"+
+        "ActiveStatus :"+ active+"\n"
+        ;
     }
 }

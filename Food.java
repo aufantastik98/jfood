@@ -103,13 +103,16 @@ public class Food
         this.category=category;
     }
     
-    public void printData ()
+    public String toString ()
     {
-        System.out.println("======Food=====");
-        System.out.println("ID:" +id);
-        System.out.println("Name:" + getSeller().getName());
-        System.out.println("City:" + getSeller().getLocation().getCity());
-        System.out.println("Price:" + price);
-        System.out.println("Category:" + category);
+       return
+        "===Food==="+"\n"+
+        "Id :"+id+"\n"+
+        "Name :"+name+"\n"+
+        "Seller :"+seller+"\n"+
+        "City :"+ getSeller().getLocation().getCity()+"\n"+
+        "Price :"+price+"\n"+
+         "Category :"+category+"\n"
+        ;
     }
     }

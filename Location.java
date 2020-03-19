@@ -67,8 +67,13 @@ public class Location
     {
     }
     
-    public void printData()
+    public String toString ()
     {
-        System.out.println(province);
+        return
+        "===Location==="+"\n"+
+        "Province :"+province+"\n"+
+        "City :"+city+"\n"+
+        "Description :"+description+"\n"
+        ;
     }
 }

@@ -110,9 +110,15 @@ public class Seller
         this.location=location;
     }
     
-    public void printData ()
+    public String toString ()
     {
-        System.out.println(name);
+        return
+        "===Seller==="+"\n"+
+        "Id :"+id+"\n"+
+        "Name :"+name+"\n"+
+        "PhoneNumber :"+phoneNumber+"\n"+
+        "Location :"+ location+"\n"
+        ;
     }
     
     

@@ -51,10 +51,16 @@ public abstract class CashlessInvoice extends Invoice
     
     public void printData()
     {
-        System.out.println("===========Invoice==========");
-        System.out.println("ID = ");
-        System.out.println("Food = ");
-        System.out.println("Date = ");
-        System.out.println("Customer =");
+        System.out.println("=========INVOICE==========="); 
+       System.out.println("ID:" + getId());
+       System.out.println("Food:" + getFood().getName());
+       System.out.println("Date:" + getDate());
+       System.out.println("Customer:" + getCustomer().getName());
+       if(promo != null && promo.getActive() == true && getFood().getPrice() >= promo.getMinPrice()){
+           System.out.println("Promo:" + promo.getCode());
+        }
+       System.out.println("Total Price:" + totalPrice);
+       System.out.println("Status:" + getInvoiceStatus());
+       System.out.println("Payment Type:" + PAYMENT_TYPE);
     }
 }
