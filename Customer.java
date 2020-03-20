@@ -1,10 +1,10 @@
 import java.util.*;
 import java.util.Calendar;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.text.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 /**
  * Write a description of class Customer here.
  *
@@ -23,7 +23,8 @@ public class Customer
     private String email;
     private String password;
     private Calendar joinDate;
-   
+    private Pattern pattern;
+    private Matcher mathcer;
     
     /** 
      *constructor ini digunakan untuk inputan id, name, email, dan password dari customer dimana nilai ini tidak dapat dikembalikan
@@ -36,30 +37,90 @@ public class Customer
     public Customer(int id, String name, String email, String password, Calendar joinDate) 
     {
         
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.password=password;
-        this.joinDate=joinDate;
+         this.id = id;
+        this.name = name;
+       String emailRegex = "^[\\w&*_~]+(?:\\.[\\w&*_~]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+            Pattern emailPattern = Pattern.compile(emailRegex);
+            Matcher emailMatcher = emailPattern.matcher(email);
+            if(emailMatcher.matches())
+            {
+                this.email=email;
+            }
+            else 
+            {
+                this.email="";
+            }
+            String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+            Pattern passwordPattern = Pattern.compile(passwordRegex);
+            Matcher passwordMatcher = passwordPattern.matcher(password);
+            if(passwordMatcher.matches())
+            {
+                this.password=password;
+            }
+            else 
+            {
+                this.password="";
+            }
+            this.joinDate=joinDate;
     }
     
     public Customer(int id, String name, String email, String password, int year, int month, int dayOfMonth) 
     {
         
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.password=password;
-        this.joinDate=new GregorianCalendar(year, month, dayOfMonth);
+        this.id = id;
+        this.name = name;
+        String emailRegex = "^[\\w&*_~]+(?:\\.[\\w&*_~]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+            Pattern emailPattern = Pattern.compile(emailRegex);
+            Matcher emailMatcher = emailPattern.matcher(email);
+            if(emailMatcher.matches())
+            {
+                this.email=email;
+            }
+            else 
+            {
+                this.email="";
+            }
+            String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+            Pattern passwordPattern = Pattern.compile(passwordRegex);
+            Matcher passwordMatcher = passwordPattern.matcher(password);
+            if(passwordMatcher.matches())
+            {
+                this.password=password;
+            }
+            else 
+            {
+                this.password="";
+            }
+            this.joinDate=joinDate;
             }
     
     public Customer(int id, String name, String email, String password) 
     {
         
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.password=password;
+          this.id = id;
+        this.name = name;
+        String emailRegex = "^[\\w&*_~]+(?:\\.[\\w&*_~]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+            Pattern emailPattern = Pattern.compile(emailRegex);
+            Matcher emailMatcher = emailPattern.matcher(email);
+            if(emailMatcher.matches())
+            {
+                this.email=email;
+            }
+            else 
+            {
+                this.email="";
+            }
+            String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+            Pattern passwordPattern = Pattern.compile(passwordRegex);
+            Matcher passwordMatcher = passwordPattern.matcher(password);
+            if(passwordMatcher.matches())
+            {
+                this.password=password;
+            }
+            else 
+            {
+                this.password="";
+            }
     }
     
     public int getID() 
@@ -119,34 +180,40 @@ public class Customer
     
     public void setEmail (String email) 
     {
-        String pattern = "^[a-zA-Z0-9_+&*-]+(?:\\." +
-                         "[a-zA-Z0-9_+&*-]+)*@"+
-                         "(?:[a-zA-Z0-9-]+\\.)+[a-z"+
-                         "A-Z]{2,7}$";
-               Pattern p = Pattern.compile(pattern);
-               Matcher m = p.matcher(email);
-               if (m.find()) {
-                   System.out.println("Email : " + m.group());
-                   this.email = email;
-                }
-                else {
-                    System.out.println("Email : NULL");
-                    this.email = "NULL";
-                }
+          String regex = "^[\\w&*_~]+(?:\\.[\\w&*_~]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+     
+            Pattern pattern = Pattern.compile(regex);
+     
+            Matcher matcher = pattern.matcher(email);
+            if(matcher.matches())
+            {
+                this.email=email;
+                System.out.println(email+"Email: ");
+            }
+            else 
+            {
+                this.email="";
+                System.out.println(email+"NULL");
+            }
             }
             
+          
     public void setPassword (String password) 
     {
-        String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
-               Pattern p = Pattern.compile(pattern);
-               Matcher m = p.matcher(password);
-               if (m.find()) {
-                   System.out.println("Password : " + m.group());
-                   this.password = password;
-                }
-                else {
-                    System.out.println("Password : NULL");
-                    this.password = "NULL";
+         String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+     
+        Pattern pattern = Pattern.compile(regex);
+ 
+        Matcher matcher = pattern.matcher(password);
+        if(matcher.matches())
+        {
+            this.password=password;
+            System.out.println(password+"Password: ");
+        }
+        else 
+        {
+            this.password="";
+            System.out.println(password+"NULL");
                 }
             }        
     
@@ -162,33 +229,33 @@ public class Customer
         this.joinDate=new GregorianCalendar(year, month-1, dayOfMonth);
     }
     
-    public String toString()
-    {
-        String stirng = "";
-        if(joinDate!=null) {
-         Date date = joinDate.getTime();
-         SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-         String date1 = format1.format(date);
-         string = "===Customer==="+"\n"+
-        "Id :"+id+"\n"+
-        "Name :"+name+"\n"+
-        "Email :"+email+"\n"+
-        "Password :"+password+"\n"+
-        "Join Date :"+joinDate+"\n"
-        ;
+    public String toString(){
+        
+   
+        String string = "";
+        if(joinDate!=null)
+        {
+            Date date = joinDate.getTime();             
+            SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+            String date1 = format1.format(date);  
+            string = "Customer:\n"+
+                   "ID = "+id+"\n"+
+                   "Nama = "+name+"\n"+
+                   "Email = "+email+"\n"+
+                   "Password = "+password+"\n"+
+                   "Join Date = "+date1+"\n";
+        }
+        else
+        {
+            string = "Customer:\n"+
+                   "ID = "+id+"\n"+
+                   "Nama = "+name+"\n"+
+                   "Email = "+email+"\n"+
+                   "Password = "+password+"\n";
+        }
+        System.out.println(string);
+        return string;
     }
-    else
-    {
-        stirng =
-        "===Customer==="+"\n"+
-        "Id :"+id+"\n"+
-        "Name :"+name+"\n"+
-        "Email :"+email+"\n"+
-        "Password :"+password+"\n"
-        ;
-    }
-    System.out.println(string);
-    return string;
-}
-
+    
+ 
 }
