@@ -15,9 +15,13 @@ public class JFood
     customer1.setEmail("aufa.aydan@gmail.com");
     customer1.setPassword("Aufa98");
     
-    System.out.println(customer1.toString());
-    System.out.println(customer2.toString());
-    System.out.println(customer3.toString());
+    CashInvoice cashinvoice = new cashinvoice (1, food, customer1, invoiceStatus);
+    CashlessInvoice cashlessinvoice = new cashlessinvoice (1, food, customer1, invoiceStatus);
+    
+    System.out.println(cashinvoice.toString());
+    System.out.println(cashlessinvoice.toString());
+    
+    
 }
       
 }

@@ -1,4 +1,10 @@
-
+import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 /**
  * Write a description of class CashInvoice here.
  *
@@ -11,14 +17,14 @@ public class CashInvoice extends Invoice
     private static PaymentType PAYMENT_TYPE;
     private int deliveryFee;
 
-    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
+    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
     {
-        super (id, food, date, customer, invoiceStatus);
+        super (id, food, customer, invoiceStatus);
     }
 
-    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee)
+    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee)
     {
-        super (id, food, date, customer, invoiceStatus);
+        super (id, food, customer, invoiceStatus);
         this.deliveryFee=deliveryFee;
     }
     
@@ -45,31 +51,10 @@ public class CashInvoice extends Invoice
         }
     }
     
-    public void printData()
+    public String toString()
     {
-       System.out.println("=========INVOICE==========="); 
-       System.out.println("ID:" + getId());
-       System.out.println("Food:" + getFood().getName());
-       System.out.println("Date:" + getDate());
-       System.out.println("Customer:" + getCustomer().getName());
-       if(deliveryFee== 0){
-        }else { System.out.println("Delivery Fee : " + deliveryFee);}
-       System.out.println("Total Price:" + totalPrice);
-       System.out.println("Status:" + getInvoiceStatus());
-       System.out.println("Payment Type:" + PAYMENT_TYPE);
-    }
-    public void printData1()
-    {
-       System.out.println("=========INVOICE==========="); 
-       System.out.println("ID:" + getId());
-       System.out.println("Food:" + getFood().getName());
-       System.out.println("Date:" + getDate());
-       System.out.println("Customer:" + getCustomer().getName());
-       if(deliveryFee== 0){
-        }else { System.out.println("Delivery Fee : " + deliveryFee);}
-       System.out.println("Total Price:" + totalPrice);
-       System.out.println("Status:" + getInvoiceStatus());
-       System.out.println("Payment Type:" + PAYMENT_TYPE);
-    }
+        retrun string;
+          }
+  
 }
 

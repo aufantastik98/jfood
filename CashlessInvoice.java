@@ -1,3 +1,10 @@
+import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 /**
  * Write a description of class CashlessInvoice here.
@@ -11,14 +18,14 @@ public abstract class CashlessInvoice extends Invoice
     private static PaymentType PAYMENT_TYPE;
     private Promo promo;
     
-    public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
+    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
     {
-        super (id, food, date, customer, invoiceStatus);
+        super (id, food, customer, invoiceStatus);
     }
 
-    public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
+    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
     {
-        super (id, food, date, customer, invoiceStatus);
+        super (id, food, customer, invoiceStatus);
         this.promo=promo;
     }
     
@@ -49,18 +56,8 @@ public abstract class CashlessInvoice extends Invoice
         }
     }
     
-    public void printData()
+    public String toString()
     {
-        System.out.println("=========INVOICE==========="); 
-       System.out.println("ID:" + getId());
-       System.out.println("Food:" + getFood().getName());
-       System.out.println("Date:" + getDate());
-       System.out.println("Customer:" + getCustomer().getName());
-       if(promo != null && promo.getActive() == true && getFood().getPrice() >= promo.getMinPrice()){
-           System.out.println("Promo:" + promo.getCode());
-        }
-       System.out.println("Total Price:" + totalPrice);
-       System.out.println("Status:" + getInvoiceStatus());
-       System.out.println("Payment Type:" + PAYMENT_TYPE);
+       return NULL;
     }
 }

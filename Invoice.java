@@ -1,4 +1,10 @@
-
+import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 /**
  * Write a description of class Invoice here.
  *
@@ -13,10 +19,11 @@ public class Invoice
     private int id;
     protected int totalPrice;
     private Food food;
-    private String date;
+    private Calendar date;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
     private PaymentType paymentType;
+    
     
     
     /** 
@@ -27,7 +34,7 @@ public class Invoice
      *@param date merupakan date dari invoice yang bertype string
      *@param cutomer merupakan customer dari invoice yang class tersebut merujuk pada class tersebut
      */
-    public Invoice (int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus) 
+    public Invoice (int id, Food food, Customer customer, InvoiceStatus invoiceStatus) 
     {
         this.id=id;
         this.food=food;
@@ -50,7 +57,7 @@ public class Invoice
         return (food);
     }
     
-    public String getDate ()
+    public Calendar getDate ()
     {
         /* @return date, fungsi ini merupakan fungsi mengembalikan variable date
          * *
@@ -97,11 +104,16 @@ public class Invoice
         this.food=food;
     }
     
-    public void setdate (String date)
+    public void setDate (Calendar date)
     {
         this.date=date;
     }
     
+    public Calendar setDate (int year, int month, int dayOfMonth)
+    {
+         return date;
+    }   
+        
     public void setTotalPrice (int totalPrice)
     {
         this.totalPrice=totalPrice;
