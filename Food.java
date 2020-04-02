@@ -24,13 +24,13 @@ public class Food
      *@param seller merupakan seller food yang merupakan class yang memanggil seller
      */
     
-    public Food (int id, int price, String name, FoodCategory category, Seller seller)
+    public Food (int id, String name, Seller seller,  int price, FoodCategory category)
     {
         this.id=id;
-        this.price=price;
         this.name=name;
+        this.seller=seller;
+        this.price=price;
         this.category=category;
-        this.seller=seller;        
     }
     
     public int getID ()

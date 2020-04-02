@@ -53,7 +53,20 @@ public class CashInvoice extends Invoice
     
     public String toString()
     {
-        retrun string;
+        SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
+            String date1 = format1.format(getDate().getTime());
+            String print;
+            print  = "======INVOICE======"+
+                   "\nID = "+super.getId()+
+                   "\nFood = "+super.getFood().getName()+
+                   "\nDate = "+date1+
+                   "\nCustomer = "+super.getCustomer().getName()+
+                   "\nDelivery Fee = "+deliveryFee+
+                   "\nTotal Price = "+super.totalPrice+
+                   "\nStatus : " + super.getInvoiceStatus()+
+                   "\nPayment Type : "+ PAYMENT_TYPE;
+            //System.out.println(print);
+            return print;     
           }
   
 }
