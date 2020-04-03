@@ -15,16 +15,20 @@ public class JFood
    // Promo promo2 = new Promo (1, "123", 5000, 20000, true);
     //Food food1 = new Food (1,"Nasi Ayam", seller1, 15000, FoodCategory.RICE);
     //Food food2 = new Food (2,"Nasi Goreng", seller1, 45000, FoodCategory.RICE);
-        DatabasePromo.addPromo(new Promo(1, "BIMOKEREN", 5000, 20000, true));
+        DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId()+1, "AUFANTASTIK", 12000, 30000, false));
+        DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId()+1, "AUFANTASTIK", 22000, 40000, true));
 
-        DatabaseSeller.addSeller(new Seller(1, "Aufa ", "aufa.dhiya@ui.ac.id", "081908921959", location2));
-        DatabaseCustomer.addCustomer(new Customer(1, "Ailsa", "ailsa.syaffa@ui.ac.id", "Ailsa1998", 1999, 5, 3));
-        DatabaseCustomer.addCustomer(new Customer(2, "Ahya", "ahya.amaniy@ui.ac.id", "Ahya2001", 2001, 6, 27));
-        DatabaseCustomer.addCustomer(new Customer(3, "Anissa", "annisa@ui.ac.id", "Annisa2001", 2001, 5, 7));
-        System.out.println(DatabaseCustomer.getCustomerDatabase());
+        for (Promo promo : DatabasePromo.getPromoDatabase()) {
+            system.out.println(promo);
+        }
+        // DatabaseSeller.addSeller(new Seller(1, "Aufa ", "aufa.dhiya@ui.ac.id", "081908921959", location2));
+       // DatabaseCustomer.addCustomer(new Customer(1, "Ailsa", "ailsa.syaffa@ui.ac.id", "Ailsa1998", 1999, 5, 3));
+       // DatabaseCustomer.addCustomer(new Customer(2, "Ahya", "ahya.amaniy@ui.ac.id", "Ahya2001", 2001, 6, 27));
+       // DatabaseCustomer.addCustomer(new Customer(3, "Anissa", "annisa@ui.ac.id", "Annisa2001", 2001, 5, 7));
+       // System.out.println(DatabaseCustomer.getCustomerDatabase());
 
-        DatabaseFood.addFood(new Food(1, "Chicken", DatabaseSeller.getSellerById(1), 20000, FoodCategory.RICE));
-        DatabaseFood.addFood(new Food(2, "Bebek", DatabaseSeller.getSellerById(1), 18000, FoodCategory.RICE));
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+1, "Chicken", DatabaseSeller.getSellerById(1), 20000, FoodCategory.RICE));
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+2, "Bebek", DatabaseSeller.getSellerById(1), 18000, FoodCategory.RICE));
         DatabaseFood.addFood(new Food(3, "Ikan", DatabaseSeller.getSellerById(1), 19200, FoodCategory.RICE));
         System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.RICE));
 
