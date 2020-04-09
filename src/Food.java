@@ -33,7 +33,7 @@ public class Food
         this.category=category;
     }
     
-    public int getID ()
+    public int getId ()
     {
         /* @return id, fungsi ini merupakan fungsi mengembalikan variable id
          * *

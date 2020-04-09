@@ -80,7 +80,7 @@ public class Promo
     public String toString ()
     {
         return
-        "===Seller==="+"\n"+
+        "===Promo==="+"\n"+
         "Id :"+id+"\n"+
         "Code :"+code+"\n"+
         "Discount :"+discount+"\n"+

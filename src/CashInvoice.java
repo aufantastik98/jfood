@@ -1,20 +1,10 @@
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.*;
-import java.text.*;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.regex.*;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-import java.util.Scanner;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
+import java.util.*;
 
 public class CashInvoice extends Invoice
 {
     // instance variables - replace the example below with your own
-    private static final PaymentType PAYMENT_TYPE=PaymentType;
+    private PaymentType PAYMENT_TYPE = PaymentType.CASH;
     private int deliveryFee;
 
     /**
@@ -33,70 +23,55 @@ public class CashInvoice extends Invoice
         setTotalPrice();
     }
 
-    public PaymentType getPaymentType()
-    {
-        return PAYMENT_TYPE;
+    public PaymentType getPaymentType(){
+        return null;
     }
 
-    public int getDeliveryFee()
-    {
+    public int getDeliveryFee(){
         return deliveryFee;
     }
 
-    public void setDeliveryFee(int deliveryFee)
-    {
+    public void setDeliveryFee (int deliveryFee){
         this.deliveryFee = deliveryFee;
     }
 
-    public void setTotalPrice()
-    {
-        for (int i = 0; i <= getFoods().size(); i++) {
-            if (deliveryFee > 0) {
-                totalPrice = getFoods().get(i).getPrice() + getDeliveryFee();
-            } else {
-                totalPrice = getFoods().get(i).getPrice();
-
-            }
+    public void setTotalPrice(){
+        int totalFoodPrice =0;
+        for(int i=0;i<getFoods().size();i++){
+            totalFoodPrice = totalFoodPrice+ getFoods().get(i).getPrice() ;
         }
-    }
 
-    public String toString()
-    {
-        String string = "";
-        for (int i = 0; i <= getFoods().size(); i++) {
-
-            if (deliveryFee == 0) {
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-                LocalDateTime now = LocalDateTime.now();
-                string =
-                        ("================INVOICE================" +
-                                "\nID: " + super.getId() +
-                                "\nFood: " + super.getFoods().get(i).getName() +
-                                "\nDate: " + dtf.format(now) +
-                                "\nCustomer: " + super.getCustomer().getName() +
-                                "\nTotal Price: " + getFoods().get(i).getPrice() +
-                                "\nStatus: " + super.getInvoiceStatus() +
-                                "\nPayment Type: " + PAYMENT_TYPE + "\n");
-            } else {
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-                LocalDateTime now = LocalDateTime.now();
-                string =
-                        ("================INVOICE================" +
-                                "\nID: " + super.getId() +
-                                "\nFood: " + super.getFoods().get(i).getName() +
-                                "\nDate: " + dtf.format(now) +
-                                "\nCustomer: " + super.getCustomer().getName() +
-                                "\nDeliveryFee : " + getDeliveryFee() +
-                                "\nTotal Price: " + super.getTotalPrice() +
-                                "\nStatus: " + super.getInvoiceStatus() +
-                                "\nPayment Type: " + PAYMENT_TYPE + "\n");
-            }
-
-
+        if( deliveryFee != -1  ){
+            super.totalPrice = totalFoodPrice + deliveryFee;
 
         }
-        System.out.println(string);
-        return string;
+   else{
+            super.totalPrice = totalFoodPrice;
+        }
     }
+    public String toString(){
+        String foodIn= "";
+        for(int i=0;i<getFoods().size();i++){
+            foodIn = foodIn+ getFoods().get(i).getName() + " ";
+        }
 
+
+        String a = "======INVOICE======\n" +
+                "Food :" + foodIn;
+
+        if(super.getDate() != null){
+            a = a+ "\nDate :" + super.getDate().get(Calendar.DAY_OF_MONTH) + "-" + super.getDate().get(Calendar.MONTH) + "-"+ super.getDate().get(Calendar.YEAR) ;
+
+        }
+
+        a= a+"\nCustomer :" + super.getCustomer().getName();
+        if(deliveryFee != 0){
+            a = a+"\nDelivery Fee :"+ deliveryFee;
+        }
+        a = a+ "\nTotal price :" + getTotalPrice()+
+                "\nStatus :" + super.getInvoiceStatus() +
+                "\nPayment Type :" + PAYMENT_TYPE;
+
+        return a;
+    }
 }
