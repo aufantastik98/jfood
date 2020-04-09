@@ -15,33 +15,21 @@ public class DatabaseSeller
     private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
-
-
-
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @return    the sum of x and y
-     */
     public static boolean addSeller(Seller seller) {
 
         SELLER_DATABASE.add(seller);
-        lastId = SELLER_DATABASE.indexOf(seller);
+        lastId = seller.getId();
         return true;
     }
 
-    public static boolean removeSeller(int id) {
-        Seller seller = SELLER_DATABASE.get(id);
-        if (seller != null) {
-            SELLER_DATABASE.remove(seller);
-            return true;
+    public static boolean removeSeller(int id) throws SellerNotFoundException {
+        for (Seller seller: SELLER_DATABASE) {
+            if (seller.getId() == id) {
+                SELLER_DATABASE.remove(seller);
+                return true;
+            }
         }
-        return false;
-    }
-
-    public static Seller getSeller(){
-        return null;
+        throw new SellerNotFoundException(id);
     }
 
     public static ArrayList<Seller> getSellerDatabase(){
@@ -52,12 +40,13 @@ public class DatabaseSeller
         return lastId;
     }
 
-    public static Seller getSellerById(int id) {
-        Seller seller = SELLER_DATABASE.get(id);
-        if (seller != null) {
-            return seller;
-        } else {
-            return null;
+    public static Seller getSellerById(int id) throws SellerNotFoundException {
+        for (Seller seller: SELLER_DATABASE) {
+            if (seller.getId() == id) {
+                return seller;
+            }
         }
+        throw new SellerNotFoundException(id);
+
     }
 }

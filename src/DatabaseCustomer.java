@@ -19,69 +19,48 @@ public class DatabaseCustomer
         return CUSTOMER_DATABASE;
     }
 
-    public static boolean addCustomer(Customer customer)
-    {
-        // put your code here
-        boolean checker = false;
-        for(int i=0;i<CUSTOMER_DATABASE.size();i++){
-            if(CUSTOMER_DATABASE.get(i).getEmail()== customer.getEmail()){
-
-
-                checker = true;
+    public static boolean addCustomer(Customer customer) throws EmailAlreadyExistsException{
+        boolean sameEmailBuff = false;
+        for (Customer buff: CUSTOMER_DATABASE) {
+            if (customer.getEmail().equals(buff.getEmail())) {
+                sameEmailBuff = true;
                 break;
-
             }
-
         }
-        if(checker == false){
+
+        if (!sameEmailBuff) {
             CUSTOMER_DATABASE.add(customer);
             lastId = customer.getId();
             return true;
         }
-        else{
-            return false;
-        }
-
-
-
+        throw new EmailAlreadyExistsException(customer);
     }
-    public static int getLastId(){
 
+    public static boolean removeCustomer(int id) throws CustomerNotFoundException{
+        for (Customer customer: CUSTOMER_DATABASE) {
+            if (customer.getId() == id){
+                CUSTOMER_DATABASE.remove(customer);
+                return true;
+            }
+        }
+        throw new CustomerNotFoundException(id);
+    }
+
+    public static ArrayList<Customer> getCustomerDatabase() {
+        return CUSTOMER_DATABASE;
+    }
+
+    public static int getLastId() {
         return lastId;
     }
-    public static boolean removeCustomer(Customer customer)
-    {
 
-        for(int i=0;i<CUSTOMER_DATABASE.size();i++){
-            if(CUSTOMER_DATABASE.get(i).getId() == customer.getId()){
-
-
-                CUSTOMER_DATABASE.remove(i);
-                return true;
-
+    public static Customer getCustomerById(int id) throws CustomerNotFoundException{
+        for (Customer customer: CUSTOMER_DATABASE) {
+            if (customer.getId() == id){
+                return customer;
             }
-
         }
-
-        return false;
-
-
-
-    }
-    public static Customer getCustomerById(int id)
-    {
-        boolean checker = false;
-        for(int i=0;i<CUSTOMER_DATABASE.size();i++){
-            if(CUSTOMER_DATABASE.get(i).getId() == id){
-                checker = true;
-                return CUSTOMER_DATABASE.get(i);
-
-            }
-
-        }
-
-        return null;
-
-    }
+        throw new CustomerNotFoundException(id);
 }
 
+}

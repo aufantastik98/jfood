@@ -60,27 +60,16 @@ public class DatabaseInvoice {
 
 
     public static boolean addInvoice(Invoice invoice) {
-        boolean checker = false;
 
-        for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
-            if (INVOICE_DATABASE.get(i).getCustomer().getId() == invoice.getCustomer().getId()) {
-
-                if (INVOICE_DATABASE.get(i).getInvoiceStatus() == InvoiceStatus.ONGOING) {
-                    checker = true;
-                    break;
-
-                }
-
+        for (Invoice temp: INVOICE_DATABASE) {
+            if (temp.getCustomer().getId() == invoice.getCustomer().getId()
+                    && temp.getInvoiceStatus().equals(InvoiceStatus.ONGOING)) {
+                return false;
             }
-
         }
-        if (checker == false) {
-            INVOICE_DATABASE.add(invoice);
-            lastId = invoice.getId();
-            return true;
-        }
-
-        return false;
+        INVOICE_DATABASE.add(invoice);
+        lastId = invoice.getId();
+        return true;
     }
 
     public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus) {
@@ -99,18 +88,13 @@ public class DatabaseInvoice {
 
     }
 
-    public static boolean removeInvoice(int id) {
-        boolean checker = false;
-        for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
-            if (INVOICE_DATABASE.get(i).getId() == id) {
-                checker = true;
-                INVOICE_DATABASE.remove(i);
+    public static boolean removeInvoce(int id) {
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (invoice.getId() == id) {
+                INVOICE_DATABASE.remove(invoice);
                 return true;
-
             }
-
         }
-
         return false;
     }
 }

@@ -23,40 +23,31 @@ public class DatabaseFood
 
 
 
-    public static   boolean addFood(Food food){
-        FOOD_DATABASE.add(food);
-        lastId= food.getId()+1;
-        return true;
-    }
-    public static  boolean removeFood(int id){
-
-        boolean checker = false;
-        for(int i=0;i<FOOD_DATABASE.size();i++){
-            if(FOOD_DATABASE.get(i).getId() == id){
-                checker = true;
-                FOOD_DATABASE.remove(i);
-                return true;
-
-            }
-
+    public static boolean addFood(Food food) {
+if (FOOD_DATABASE.add(food)) {
+            lastId = food.getId();
+            return true;
         }
-
         return false;
     }
 
-    public  static  Food getFoodById(int id){
-
-        boolean checker = false;
-        for(int i=0;i<FOOD_DATABASE.size();i++){
-            if(FOOD_DATABASE.get(i).getId() == id){
-                checker = true;
-                return FOOD_DATABASE.get(i);
-
+    public static boolean removeFood(int id) throws FoodNotFoundException{
+        for (Food food: FOOD_DATABASE) {
+            if (food.getId() == id) {
+                FOOD_DATABASE.remove(food);
+                return true;
             }
-
         }
+        throw new FoodNotFoundException(id);
+    }
 
-        return null;
+    public static Food getFoodById(int id) throws FoodNotFoundException{
+        for (Food food: FOOD_DATABASE) {
+            if (food.getId() == id) {
+                return food;
+            }
+        }
+        throw new FoodNotFoundException(id);
     }
 
     public  static  ArrayList<Food> getFoodBySeller(int sellerId){
