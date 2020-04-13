@@ -24,20 +24,13 @@ public class DatabaseInvoice {
         return lastId;
     }
 
-    public static Invoice GetInvoiceById(int id) {
-        boolean checker = false;
-        for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
-            if (INVOICE_DATABASE.get(i).getId() == id) {
-                checker = true;
-                return INVOICE_DATABASE.get(i);
-
+    public static Invoice getInvoiceById(int id) {
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (invoice.getId() == id) {
+                return invoice;
             }
-
         }
-
         return null;
-
-
     }
 
     public static ArrayList<Invoice> getInvoiceByCustomer(int customerId) {
@@ -59,42 +52,38 @@ public class DatabaseInvoice {
     }
 
 
-    public static boolean addInvoice(Invoice invoice) {
+    public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistsException{
 
         for (Invoice temp: INVOICE_DATABASE) {
             if (temp.getCustomer().getId() == invoice.getCustomer().getId()
                     && temp.getInvoiceStatus().equals(InvoiceStatus.ONGOING)) {
-                return false;
+                throw new OngoingInvoiceAlreadyExistsException(invoice);
             }
         }
+
         INVOICE_DATABASE.add(invoice);
         lastId = invoice.getId();
         return true;
+
     }
 
     public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus) {
-
-
-        for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
-            if (INVOICE_DATABASE.get(i).getId() == id) {
-                INVOICE_DATABASE.get(i).setInvoiceStatus(invoiceStatus);
-
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (invoice.getId() == id && invoice.getInvoiceStatus().equals(InvoiceStatus.ONGOING)){
+                invoice.setInvoiceStatus(invoiceStatus);
                 return true;
-
             }
-
         }
         return false;
-
     }
 
-    public static boolean removeInvoce(int id) {
+    public static boolean removeInvoce(int id) throws InvoiceNotFoundException{
         for (Invoice invoice: INVOICE_DATABASE) {
             if (invoice.getId() == id) {
                 INVOICE_DATABASE.remove(invoice);
                 return true;
             }
         }
-        return false;
+        throw new InvoiceNotFoundException(id);
     }
 }

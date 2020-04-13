@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class DatabaseCustomer
 {
 
-    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
-    private static int lastId=0;
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<>();
+    private static int lastId = 0;
 
     public DatabaseCustomer(){
 
@@ -46,7 +46,7 @@ public class DatabaseCustomer
         throw new CustomerNotFoundException(id);
     }
 
-    public static ArrayList<Customer> getCustomerDatabase() {
+    public static ArrayList<Customer> getDatabaseCustomer() {
         return CUSTOMER_DATABASE;
     }
 

@@ -1,126 +1,85 @@
 import java.util.*;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 /**
- * Write a description of class Invoice here.
+ * Write a description of class Food here.
  *
  * @author Aufa Dhiya Aydan
- * @version 28 February 2020
+ * @version
  */
-
-// Ini merupakan class buat invoice
-public class Invoice
+public abstract class Invoice
 {
-    // instance variables - replace the example below with your own
     private int id;
-    protected int totalPrice;
-    private ArrayList<Food> foods;
+    private ArrayList<Food> food;
     private Calendar date;
+    protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
-    private PaymentType paymentType;
-    
 
-    public Invoice (int id, ArrayList<Food> foods, Customer customer)
+    public Invoice(int id, ArrayList<Food> food, Customer customer)
     {
-        this.id=id;
-        this.foods=foods;
-        this.customer=customer;
-    }
-    
-    public int getId ()
-    { 
-        /* @return id, fungsi ini merupakan fungsi mengembalikan variable id
-         * *
-         * *
-         */
-        return (id);
-    }
-    
-    public ArrayList<Food> getFoods ()
-    {
+        Calendar calendar = Calendar.getInstance();
 
-        return (foods);
+        this.id = id;
+        this.food = food;
+        this.customer = customer;
+        this.date = new GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        this.invoiceStatus = InvoiceStatus.ONGOING;
     }
-    
-    public Calendar getDate ()
-    {
-        /* @return date, fungsi ini merupakan fungsi mengembalikan variable date
-         * *
-         * *
-         */
-        return (date);
+
+    public int getId(){
+        return id;
     }
-    
-    public int getTotalPrice ()
-    {
-        /* @return totalPrice, fungsi ini merupakan fungsi mengembalikan variable totalPrice
-         * *
-         * *
-         */
-        return (totalPrice);
+
+
+    public ArrayList<Food> getFoods() {
+        return food;
     }
-    
-    public Customer getCustomer()
-    {
-        /* @return customer, fungsi ini merupakan fungsi mengembalikan variable customer
-         * *
-         * *
-         */
-        return (customer);
+
+
+    public Calendar getDate(){
+        return date;
     }
-    
-    public PaymentType getPaymentType()
-    {
-        return paymentType;
+
+    public int getTotalPrice(){
+        return totalPrice;
     }
-    
-    public InvoiceStatus getInvoiceStatus()
-    {
-        return null;
+
+    public Customer getCustomer(){
+        return customer;
     }
-    
-    public void setId (int id)
-    { 
-        this.id=id;
+
+    public abstract PaymentType getPaymentType();
+
+    public InvoiceStatus getInvoiceStatus() {
+        return invoiceStatus;
     }
-    
-    public void setFoods (ArrayList<Food> foods)
-    {
-        this.foods=foods;
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        this.invoiceStatus = invoiceStatus;
     }
-    
-    public void setDate (Calendar date)
-    {
-        this.date=date;
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
-    
-    public Calendar setDate (int year, int month, int dayOfMonth)
-    {
-         return date;
-    }   
-        
-    public void setTotalPrice (int totalPrice)
-    {
-        this.totalPrice=totalPrice;
+
+    public void setId(int id){
+        this.id = id;
     }
-    
-    public void setCusomer (Customer customer)
-    {
-        this.customer=customer;
+
+
+    public void setFood (ArrayList<Food> food) {
+        this.food = food;
     }
-    
-    public void setInvoiceStatus (InvoiceStatus invoiceStatus)
-    {
-        this.invoiceStatus=invoiceStatus;
+
+    public void setDate(Calendar date){
+        this.date = date;
     }
-    
-    public void printData()
-    {
-           }
-     
+
+    public void setDate(int year, int month, int dayOfMonth){
+        this.date = new GregorianCalendar(year, month, dayOfMonth);
+    }
+
+    public abstract void setTotalPrice();
+
+    public abstract String toString();
+
 }
