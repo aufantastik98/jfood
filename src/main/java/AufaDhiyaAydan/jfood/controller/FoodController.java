@@ -6,41 +6,55 @@ import java.util.ArrayList;
 @RequestMapping("/food")
 @RestController
 public class FoodController {
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public ArrayList<Food> getAllFood(@PathVariable int id) {
+
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ArrayList<Food> getAllFood() {
         return DatabaseFood.getFoodDatabase();
     }
 
-    @RequestMapping(value = "/food/{id}", method = RequestMethod.GET)
-    public Food getFoodById(@PathVariable int id) throws FoodNotFoundException {
-        Food food = DatabaseFood.getFoodById(id);
-        return food;
+    @RequestMapping("/{id}")
+    public Food getFoodById(@PathVariable int id) {
+        Food temp;
+        try{
+            temp = DatabaseFood.getFoodById(id);
+            return temp;
+        } catch (FoodNotFoundException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    @RequestMapping(value = "/seller/{sellerId}", method = RequestMethod.GET)
-    public ArrayList<Food> getFoodBySeller(@PathVariable int sellerId) throws FoodNotFoundException {
-        ArrayList<Food> food = DatabaseFood.getFoodBySeller(sellerId);
-        return food;
+    @RequestMapping("/seller/{sellerid}")
+    public ArrayList<Food> getFoodBySeller(@PathVariable int sellerid){
+        return DatabaseFood.getFoodBySeller(sellerid);
     }
 
-    @RequestMapping(value = "/category/{category}", method = RequestMethod.GET)
-    public ArrayList<Food> getFoodByCategory(@PathVariable FoodCategory category) throws FoodNotFoundException {
-        ArrayList<Food> food = DatabaseFood.getFoodByCategory(category);
-        return food;
+    @RequestMapping("/category/{category}")
+    public ArrayList<Food> getFoodByCategory(@PathVariable FoodCategory category) {
+        return DatabaseFood.getFoodByCategory(category);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Food addFood(@RequestParam(value = "name") String name,
                         @RequestParam(value = "price") int price,
                         @RequestParam(value = "category") FoodCategory category,
-                        @RequestParam(value = "sellerId") int sellerId) {
-        Food food = null;
+                        @RequestParam(value = "sellerId") int sellerid) {
+        Seller seller;
         try {
-            food = new Food(DatabaseFood.getLastId() + 1, name, DatabaseSeller.getSellerById(sellerId), price, category);
-            DatabaseFood.addFood(food);
+            seller = DatabaseSeller.getSellerById(sellerid);
+            if (DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, name,
+                    seller, price, category))) {
+                Food temp;
+                try {
+                    temp = DatabaseFood.getFoodById(DatabaseFood.getLastId());
+                    return temp;
+                } catch (FoodNotFoundException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         } catch (SellerNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        return food;
+        return null;
     }
 }
