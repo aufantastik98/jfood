@@ -7,8 +7,7 @@ package AufaDhiyaAydan.jfood;
  */
 public enum InvoiceStatus
 {
-    // instance variables - replace the example below with your own
-    ONGOING ("Ongoing"),
+   ONGOING ("Ongoing"),
     FINISHED ("Finished"),
     CANCELLED ("Cancelled");
         
@@ -24,5 +23,4 @@ public enum InvoiceStatus
         return statusInvoice;
     }
 
-    
 }

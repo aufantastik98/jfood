@@ -7,7 +7,6 @@ package AufaDhiyaAydan.jfood;
  */
 public enum FoodCategory
 {
-    // instance variables - replace the example below with your own
     BEVERAGES ("Beverages"),
     COFFEE ("Coffee"),
     WESTERN ("Western"),

@@ -1,42 +1,44 @@
 package AufaDhiyaAydan.jfood;
-import java.lang.reflect.Array;
-import java.util.regex.*;
-import java.util.*;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class CashlessInvoice extends Invoice
 {
-    private PaymentType PAYMENT_TYPE = PaymentType.CASHLESS;
+    private static PaymentType PAYMENT_TYPE = PaymentType.CASHLESS;
     private Promo promo;
 
-    /**
-     * Constructor for objects of class CashlessInvoice
-     */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
-        super(id,foods,customer);
-        setTotalPrice();
+        super(id, foods, customer);
+
     }
 
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo)
     {
-        super(id,foods,customer);
-        this.promo=promo;
-        setTotalPrice();
+        super(id, foods, customer);
+        this.promo = promo;
+
     }
 
-    public PaymentType getPaymentType(){
-        return null;
+    public PaymentType getPaymentType()
+    {
+        return PAYMENT_TYPE;
     }
 
-    public Promo getPromo(){
+    public Promo getPromo()
+    {
         return promo;
     }
 
-    public void setPromo (Promo promo){
+    public void setPromo (Promo promo)
+    {
         this.promo = promo;
     }
 
-    public void setTotalPrice(){
+    public void setTotalPrice()
+    {
         int totalFoodPrice =0;
         for(int i=0;i<getFoods().size();i++){
             totalFoodPrice = totalFoodPrice+ getFoods().get(i).getPrice() ;
@@ -50,35 +52,33 @@ public class CashlessInvoice extends Invoice
                 super.totalPrice = totalFoodPrice;
             }
 
-
-
         }
         else{
             super.totalPrice = totalFoodPrice;
         }
     }
-    public String toString(){
 
-        String foodIn= "";
-        for(int i=0;i<getFoods().size();i++){
-            foodIn = foodIn+ getFoods().get(i).getName() + " ";
+    public String toString()
+    {
+        String food = " ";
+        for(int i = 0; i < getFoods().size(); i++){
+            food = food + getFoods().get(i).getName() + " ";
         }
-
-        String a = "======INVOICE======\n" +
-                "Food :" + foodIn;
+        String b = "======INVOICE======\n" +
+                "FOOD :" + food;
         if(super.getDate() != null){
-            a = a+ "\nDate :" + super.getDate().get(Calendar.DAY_OF_MONTH) + "-" + super.getDate().get(Calendar.MONTH) + "-"+ super.getDate().get(Calendar.YEAR) ;
+            b = b + "\nDate :" + super.getDate().get(Calendar.DAY_OF_MONTH) + "-" + super.getDate().get(Calendar.MONTH) + "-"+ super.getDate().get(Calendar.YEAR);
+        }
+        b = b + "\nCustomer :" + super.getCustomer().getName();
 
-        }
-        a = a+
-                "\nCustomer :" + super.getCustomer().getName();
         if(promo != null){
-            a = a+"\nPromo :" + promo.getCode();
+            b = b+"\nPromo :" + promo.getCode();
         }
-        a = a+ "\nTotal price :" + getTotalPrice()+
+        b = b+ "\nTotal price :" + getTotalPrice()+
                 "\nStatus :" + super.getInvoiceStatus() +
                 "\nPayment Type :" + PAYMENT_TYPE;
-
-        return a;
+        return b;
     }
+
+
 }

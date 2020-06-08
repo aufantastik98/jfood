@@ -2,12 +2,11 @@ package AufaDhiyaAydan.jfood;
 /**
  * Write a description of class Promo here.
  *
- * @author (your name)
+ * @author Aufa Dhiya Aydan
  * @version (a version number or a date)
  */
 public class Promo
 {
-    // instance variables - replace the example below with your own
     private int id, discount, minPrice;
     private String code;
     private boolean active;

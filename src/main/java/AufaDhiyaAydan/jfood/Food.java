@@ -6,10 +6,8 @@ package AufaDhiyaAydan.jfood;
  * @version 28 February 2020
  */
 
-// Ini merupakan class buat food
 public class Food
 {
-    // instance variables - replace the example below with your own
     private int id, price;
     private String name;
     private Seller seller;

@@ -5,29 +5,18 @@ import java.util.ArrayList;
 /**
  * Write a description of class DatabasePromo here.
  *
- * @author (your name)
+ * @author Aufa Dhiya Aydan
  * @version (a version number or a date)
  */
 public class DatabasePromo
 {
-    // instance variables - replace the example below with your own
     private static ArrayList<Promo> PROMO_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
-    /**
-     * Constructor for objects of class DatabasePromo
-     */
     public DatabasePromo()
     {
-        // initialise instance variables
-
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @return    the sum of x and y
-     */
     public static boolean addPromo(Promo promo) throws PromoCodeAlreadyExistsException{
     boolean samePromoCode = false;
         for (Promo buff: PROMO_DATABASE) {

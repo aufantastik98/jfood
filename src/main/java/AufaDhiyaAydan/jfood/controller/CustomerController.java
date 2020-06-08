@@ -1,9 +1,9 @@
 package AufaDhiyaAydan.jfood.controller;
-
 import AufaDhiyaAydan.jfood.*;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/customer")
+@CrossOrigin(origins = "*", allowedHeaders = "")
 @RestController
 public class CustomerController {
 
@@ -18,7 +18,7 @@ public class CustomerController {
         try {
             customer = DatabaseCustomer.getCustomerById(id);
         } catch (CustomerNotFoundException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             return null;
         }
         return customer;
@@ -33,16 +33,17 @@ public class CustomerController {
         try {
             DatabaseCustomer.addCustomer(customer);
         } catch (EmailAlreadyExistsException e) {
-            e.getMessage();
-            return null;
+            System.out.println(e.getMessage());
+            //return null;
         }
         return customer;
     }
 
-    @RequestMapping(value = "/customer/login", method = RequestMethod.POST)
-    public Customer loginCust(@RequestParam(value = "email")String email,
-                              @RequestParam(value = "password") String password)
-    {
-        return null;
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Customer loginCustomer(@RequestParam(value = "email") String email,
+                                  @RequestParam(value = "password") String password) {
+
+        Customer customer = DatabaseCustomer.getCustomerLogin(email, password);
+        return customer;
     }
 }

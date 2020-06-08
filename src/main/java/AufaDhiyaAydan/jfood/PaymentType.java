@@ -2,12 +2,11 @@ package AufaDhiyaAydan.jfood;
 /**
  * Write a description of class PaymentType here.
  *
- * @author (your name)
+ * @author Aufa Dhiya Aydan
  * @version (a version number or a date)
  */
 public enum PaymentType
 {
-    // instance variables - replace the example below with your own
     CASHLESS ("Cashless"),
     CASH ("Cash");
     
